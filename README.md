@@ -220,18 +220,6 @@ The GPU implementation uses a different optimization strategy:
 - Conductance and burned-bond state are updated as device arrays.
 - The implementation is tuned for float32 throughput and explicitly requests the GPU platform.
 
-## Limitations and reproducibility
-
-- The lattice dimensions are currently module-level constants in `cpu_rfm_triangular.py` (`L=64` by default), rather than command-line options.
-- The visualizer's `--lattice-size` must match the data that was generated.
-- The solver uses a fixed voltage boundary on the first and last lattice rows.
-- The simulation currently caps the primary fracture loop at 20,000 events.
-- Random thresholds are seeded from `run_no`; changing the run number changes the disorder realization.
-- The CPU and GPU implementations do not currently share one configurable API.
-- The GPU implementation currently has fixed lattice size, square topology, threshold settings, pre-crack size, fracture-event limit, and output directory.
-- GPU output is currently a subset of CPU output, so some visualizer features that depend on threshold or final-voltage files are unavailable for GPU runs.
-- The repository does not currently include automated tests or packaging metadata.
-
 ## License
 
 RFMpy is released under the MIT License. See [`LICENSE`](LICENSE).
